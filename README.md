@@ -2,6 +2,7 @@ Waterloo-Food-Menu
 ==================
 
 Resources:
+
 SeparatedListAdapter: http://jsharkey.org/blog/2008/08/18/separating-lists-with-headers-in-android-09/
 Android JSON Parsing Tutorial: http://www.androidhive.info/2012/01/android-json-parsing-tutorial/
 Android ListView Tutorial 1: http://www.androidhive.info/2011/10/android-listview-tutorial/
