@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 	private static final String[] TAG_DAYS = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
 	
 	private static final String TAG_LUNCH = "Lunch";
+	private static final String TAG_DINNER = "Dinner";
 	private static final String TAG_ITEMS = "Items";
 	private static final String TAG_RESULT = "result";
 	
@@ -52,19 +53,35 @@ public class MainActivity extends Activity {
 			JSONObject BonAppetit = Restaurants.getJSONObject(TAG_BONAPPETIT);
 			Log.d("blah","blah");
 			JSONObject Menu = BonAppetit.getJSONObject(TAG_MENU);
-			String result = "";
+			String output = "";
+			
 			for (int i = 0; i < Menu.length(); i ++) {
+				output += TAG_DAYS[i] + ": \n";
 				JSONObject day = Menu.getJSONObject(TAG_DAYS[i]);
+				
+				// Lunch
 				JSONObject Lunch = day.getJSONObject(TAG_LUNCH);
 				JSONObject Items = Lunch.getJSONObject(TAG_ITEMS);
-				//JSONObject result = Items.getJSONObject(TAG_RESULT);
+				Log.d("blah","blah5");
+				output += "Lunch:";
+				JSONArray result = Items.getJSONArray(TAG_RESULT);
+				output += result.getString(0);
+				output += "\n";
 				
-				result += Items.getString(TAG_RESULT);
-				result += " ";
+				// Dinner
+				if (day.has(TAG_DINNER) == true) {
+					JSONObject Dinner = day.getJSONObject(TAG_DINNER);
+					Items = Dinner.getJSONObject(TAG_ITEMS);
+
+					output += "Dinner:";
+					result = Items.getJSONArray(TAG_RESULT);
+					output += result.getString(0);
+					output += "\n";
+				}
 			}
-			Log.d("blah",result);
+			Log.d("blah",output);
 			TextView tv = (TextView) findViewById(R.id.text);
-			tv.setText(result);
+			tv.setText(output);
 			
 		} catch (JSONException e) {
 			e.printStackTrace();
