@@ -1,3 +1,5 @@
+// Created by Corey Wu, Johan Augustine & Shamak Dutta  
+
 package com.example.jsonparser;
 
 import java.util.ArrayList;
