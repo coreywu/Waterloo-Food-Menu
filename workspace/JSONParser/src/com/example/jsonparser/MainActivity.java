@@ -37,7 +37,6 @@ public class MainActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		String restaurant = (String) getListAdapter().getItem(position);
-		//Toast.makeText(this, "Aha: "+s, Toast.LENGTH_LONG).show();
 		
 		Intent intent = new Intent(getApplicationContext(), RestaurantActivity.class);
 		intent.putExtra("restaurant", restaurant);
