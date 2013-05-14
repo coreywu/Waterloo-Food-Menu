@@ -22,20 +22,28 @@ public class JSONParser {
 	static JSONObject jObj = null;
 	static String json = "";
 
-	// constructor
 	public JSONParser() {
-
 	}
+	
+	/* 
+	 * 
+	 * 
+	 * Method to get the JSON data from the API 
+	 * 
+	 * 
+	 */
 
 	public JSONObject getJSONFromUrl(String url) {
-
-		// Making HTTP request
 		try {
-			// defaultHttpClient
+			
+			// Setting up a default client to get the data
 			DefaultHttpClient httpClient = new DefaultHttpClient();
+			// HttpPost is a request to the web server
 			HttpPost httpPost = new HttpPost(url);
-
+			
+			// Client executes the request
 			HttpResponse httpResponse = httpClient.execute(httpPost);
+			// The 'response' from the server feeds back data stored in the httpEntity
 			HttpEntity httpEntity = httpResponse.getEntity();
 			is = httpEntity.getContent();			
 
@@ -61,14 +69,14 @@ public class JSONParser {
 			Log.e("Buffer Error", "Error converting result " + e.toString());
 		}
 
-		// try parse the string to a JSON object
+		// Assigning that string to the JSON Object
 		try {
 			jObj = new JSONObject(json);
 		} catch (JSONException e) {
 			Log.e("JSON Parser", "Error parsing data " + e.toString());
 		}
 
-		// return JSON String
+		// return JSON object which carries the JSON data
 		return jObj;
 
 	}
