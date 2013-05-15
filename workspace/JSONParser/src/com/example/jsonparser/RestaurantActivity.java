@@ -42,8 +42,6 @@ public class RestaurantActivity extends Activity {
 	public final static String ITEM_TITLE = "title";
 	public final static String ITEM_CAPTION = "caption";
 	
-	// useless comment added for Shamak
-	
 	public Map<String,?> createItem(String title, String caption) {
 		Map<String,String> item = new HashMap<String,String>();
 		item.put(ITEM_TITLE, title);
@@ -58,7 +56,6 @@ public class RestaurantActivity extends Activity {
 		
 		Intent intent = getIntent();
 		String TAG_RESTAURANT = intent.getStringExtra("restaurant").replaceAll("\\s", "");
-		
 		Log.i(TAG_RESTAURANT, "stuff");
 		//List<String> list = new ArrayList<String>();
 		

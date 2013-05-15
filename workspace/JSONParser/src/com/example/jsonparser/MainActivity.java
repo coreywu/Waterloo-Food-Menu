@@ -42,8 +42,8 @@ public class MainActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		String restaurant = (String) getListAdapter().getItem(position);
 		
+		String restaurant = (String) getListAdapter().getItem(position);
 		Intent intent = new Intent(getApplicationContext(), RestaurantActivity.class);
 		intent.putExtra("restaurant", restaurant);
 		startActivity(intent);
