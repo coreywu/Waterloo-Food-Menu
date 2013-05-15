@@ -13,6 +13,7 @@ import org.json.JSONObject;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -28,7 +29,7 @@ public class RestaurantActivity extends Activity {
 	private static final String TAG_RESPONSE = "response";
 	private static final String TAG_DATA = "data";
 	private static final String TAG_RESTAURANTS = "Restaurants";
-	private static final String TAG_BONAPPETIT = "BonAppetit";
+	//private static final String TAG_BONAPPETIT = "BonAppetit";
 	private static final String TAG_MENU = "Menu";
 	
 	private static final String[] TAG_DAYS = new String[]{"Monday", "Tuesday", "Wednesday", "Thursday", "Friday"};
@@ -37,8 +38,6 @@ public class RestaurantActivity extends Activity {
 	private static final String TAG_DINNER = "Dinner";
 	private static final String TAG_ITEMS = "Items";
 	private static final String TAG_RESULT = "result";
-	
-	JSONArray response = null;
 	
 	public final static String ITEM_TITLE = "title";
 	public final static String ITEM_CAPTION = "caption";
@@ -57,12 +56,14 @@ public class RestaurantActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		Intent intent = getIntent();
+		String TAG_RESTAURANT = intent.getStringExtra("restaurant").replaceAll("\\s", "");
+		
+		Log.i(TAG_RESTAURANT, "stuff");
 		//List<String> list = new ArrayList<String>();
 		
 		List<String> list = new LinkedList<String>();  
 		SeparatedListAdapter adapter = new SeparatedListAdapter(this);
-		
-		
 		
 		// Creating JSON Parser instance
 		JSONParser jParser = new JSONParser();
@@ -74,7 +75,7 @@ public class RestaurantActivity extends Activity {
 			JSONObject response = json.getJSONObject(TAG_RESPONSE);
 			JSONObject data = response.getJSONObject(TAG_DATA);
 			JSONObject Restaurants = data.getJSONObject(TAG_RESTAURANTS);
-			JSONObject BonAppetit = Restaurants.getJSONObject(TAG_BONAPPETIT);
+			JSONObject BonAppetit = Restaurants.getJSONObject(TAG_RESTAURANT);
 			JSONObject Menu = BonAppetit.getJSONObject(TAG_MENU);
 			
 			JSONObject day;
@@ -83,9 +84,11 @@ public class RestaurantActivity extends Activity {
 			JSONObject Items;
 			JSONArray result;
 			
+			adapter.addSection(intent.getStringExtra("restaurant"), new ArrayAdapter<String>(this, R.layout.space_list_item, new String[] {""}));
+			
 			for (int i = 0; i < Menu.length(); i ++) {
 				day = Menu.getJSONObject(TAG_DAYS[i]);
-				adapter.addSection(TAG_DAYS[i], new ArrayAdapter<String>(this, R.layout.list_item, new String[] {}));
+				adapter.addSection(TAG_DAYS[i], new ArrayAdapter<String>(this, R.layout.space_list_item, new String[] {}));
 				
 				// Adding spaces fixes the problem of having multiple sections of the same title.
 				String spaces = "";
@@ -118,6 +121,10 @@ public class RestaurantActivity extends Activity {
 			
 		} catch (JSONException e) {
 			e.printStackTrace();
+			adapter.addSection(intent.getStringExtra("restaurant"), new ArrayAdapter<String>(this, R.layout.menu_list_item, new String[] {"Nothing is on the menu"}));
+			ListView listView = new ListView(this);
+			listView.setAdapter(adapter);
+			this.setContentView(listView);
 		}
 	}
 

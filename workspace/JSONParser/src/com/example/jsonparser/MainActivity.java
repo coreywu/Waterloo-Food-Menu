@@ -31,6 +31,10 @@ public class MainActivity extends ListActivity {
 		List<String> list = new ArrayList<String>();
 		list.add("BonAppetit");
 		list.add("Brubakers");
+		list.add("Festival Fare");
+		list.add("Liquid Assets");
+		list.add("Mudies");
+		list.add("REVelation");
 		ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, R.layout.restaurant_list_item, list);
 		setListAdapter(listAdapter);
 	}
