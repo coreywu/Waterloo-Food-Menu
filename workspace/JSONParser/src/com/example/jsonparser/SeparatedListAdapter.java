@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -63,7 +64,9 @@ public class SeparatedListAdapter extends BaseAdapter {
 			int size = adapter.getCount() + 1;
 			
 			// check if position inside this section 
-			if(position == 0) return TYPE_SECTION_HEADER;
+			if(position == 0) {
+				return TYPE_SECTION_HEADER;
+			}
 			if(position < size) return type + adapter.getItemViewType(position - 1);
 
 			// otherwise jump into next section
@@ -71,14 +74,14 @@ public class SeparatedListAdapter extends BaseAdapter {
 			type += adapter.getViewTypeCount();
 		}
 		return -1;
-	}
+	} 
 	
 	public boolean areAllItemsSelectable() {
 		return false;
 	}
 
 	public boolean isEnabled(int position) {
-		return (getItemViewType(position) != TYPE_SECTION_HEADER);
+		return (getItemViewType(position) == TYPE_SECTION_HEADER);
 	}
 	
 	@Override
@@ -89,7 +92,9 @@ public class SeparatedListAdapter extends BaseAdapter {
 			int size = adapter.getCount() + 1;
 			
 			// check if position inside this section 
-			if(position == 0) return headers.getView(sectionnum, convertView, parent);
+			if(position == 0) {
+				return headers.getView(sectionnum, convertView, parent);
+			}
 			if(position < size) return adapter.getView(position - 1, convertView, parent);
 
 			// otherwise jump into next section
