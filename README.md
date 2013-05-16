@@ -1,5 +1,7 @@
-Waterloo-Food-Menu
+UW-Food-Menu
 ==================
+
+Application to view menus of all restaurants on campus. 
 
 Resources:
 
@@ -13,6 +15,3 @@ Android ListView Tutorial 2: http://www.vogella.com/articles/AndroidListView/art
 
 JSONObject Documentation: http://developer.android.com/reference/org/json/JSONObject.html
 
-UW Food: https://itunes.apple.com/us/app/uw-food/id554556711?mt=8
-
-Food Menu: https://github.com/alykhank/FoodMenu
