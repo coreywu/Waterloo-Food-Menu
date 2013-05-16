@@ -27,6 +27,8 @@ public class RestaurantDetails extends Activity {
 	private static final String TAG_HOURS = "Hours";
 	private static final String TAG_RESULT = "result";
 	
+	//test
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
