@@ -28,10 +28,6 @@
             android:name="com.example.jsonparser.RestaurantActivity"
             android:label="@string/title_activity_restaurant" >
         </activity>
-        <activity
-            android:name="com.example.jsonparser.RestaurantDetails"
-            android:label="@string/title_activity_restaurant_details" >
-        </activity>
     </application>
 
 </manifest>
