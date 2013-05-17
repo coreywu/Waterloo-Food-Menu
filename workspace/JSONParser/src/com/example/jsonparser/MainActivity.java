@@ -29,7 +29,7 @@ public class MainActivity extends ListActivity {
 		setContentView(R.layout.activity_main);
 		
 		List<String> list = new ArrayList<String>();
-		list.add("BonAppetit");
+		list.add("Bon Appetit");
 		list.add("Brubakers");
 		list.add("Festival Fare");
 		list.add("Liquid Assets");
