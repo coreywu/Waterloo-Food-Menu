@@ -37,6 +37,10 @@
             android:name="com.example.jsonparser.ProductInfoActivity"
             android:label="@string/title_activity_product_info" >
         </activity>
+        <activity
+            android:name="com.example.jsonparser.DetailsMenu"
+            android:label="@string/title_activity_details_menu" >
+        </activity>
     </application>
 
 </manifest>

@@ -6,5 +6,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_restaurant">RestaurantActivity</string>
     <string name="title_activity_product_info">ProductInfoActivity</string>
+    <string name="back">Back</string>
+    <string name="menu">Menu</string>
+    <string name="details">Details</string>
+    <string name="title_activity_details_menu">DetailsMenu</string>
 
 </resources>

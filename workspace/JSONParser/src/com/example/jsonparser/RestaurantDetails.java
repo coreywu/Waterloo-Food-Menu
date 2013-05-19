@@ -36,7 +36,7 @@ public class RestaurantDetails extends Activity {
 		setContentView(R.layout.activity_restaurant_details);
 		
 		Intent intent = getIntent();
-		final String TAG_NAME = intent.getExtras().getString("Restaurant_Name");
+		final String TAG_NAME = intent.getExtras().getString("restaurant");
 		
 		JSONParser parser = new JSONParser();
 		JSONObject json = parser.getJSONFromUrl(url);

@@ -38,6 +38,7 @@
         android:layout_alignBaseline="@+id/details"
         android:layout_alignBottom="@+id/details"
         android:layout_toRightOf="@+id/back"
+        android:clickable="false"
         android:minHeight="0dip"
         android:minWidth="110dp"
         android:paddingBottom="5dp"
