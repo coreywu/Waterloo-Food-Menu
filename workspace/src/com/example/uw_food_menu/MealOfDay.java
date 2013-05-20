@@ -15,6 +15,7 @@ public class MealOfDay extends ListActivity {
 	
 	private static final String[] meals = { "Lunch", "Dinner" };
 	private static String Restaurant_name;
+	static String Meal = "Meal_ID";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +48,9 @@ public class MealOfDay extends ListActivity {
 	protected void onListItemClick(ListView l, View v, 	int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		
-		Intent intent = new Intent(this, MenuData.class);
-		intent.putExtra("Restaurant_Name", Restaurant_name);
-		intent.putExtra("Meal", meals[position]);
+		Intent intent = new Intent(this, DayOfTheWeek.class);
+		intent.putExtra(RestaurantList.restaurant_id, Restaurant_name);
+		intent.putExtra(Meal, meals[position]);
 		startActivityForResult(intent, position);
 	}
 

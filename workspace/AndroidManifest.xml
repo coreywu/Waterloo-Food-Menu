@@ -7,8 +7,9 @@
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="10" />
-    
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
 
     <application
         android:allowBackup="true"
@@ -39,6 +40,10 @@
         <activity
             android:name="com.example.uw_food_menu.MenuData"
             android:label="@string/title_activity_menu_data" >
+        </activity>
+        <activity
+            android:name="com.example.uw_food_menu.DayOfTheWeek"
+            android:label="@string/title_activity_day_of_the_week" >
         </activity>
     </application>
 
